@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "021341b8-0140-405d-bc27-edcd284b1c65",
+		"name": "laravel-jwt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30861128"
+	},
+	"item": [
+		{
+			"name": "http://laravel-jwt.local/api/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "sergey",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "tulazis@yandx.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "sergey",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "sergey",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://laravel-jwt.local/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"laravel-jwt",
+						"local"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://laravel-jwt.local/api/auth/user-profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGFyYXZlbC1qd3QubG9jYWwvYXBpL2F1dGgvcmVmcmVzaCIsImlhdCI6MTcxMDAxMzkwOSwiZXhwIjoxNzEwMDE3ODUxLCJuYmYiOjE3MTAwMTQyNTEsImp0aSI6IkNrdFN4TmNTYmc3RDRWbHQiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.YGX6OPHYS-VM43DYBip1jQnHQT0Q6nszSrUSS9AFHpo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://laravel-jwt.local/api/auth/user-profile",
+					"protocol": "http",
+					"host": [
+						"laravel-jwt",
+						"local"
+					],
+					"path": [
+						"api",
+						"auth",
+						"user-profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://laravel-jwt.local/api/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "tulazis@yandex.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "sergey",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://laravel-jwt.local/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"laravel-jwt",
+						"local"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://laravel-jwt.local/api/auth/refresh",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGFyYXZlbC1qd3QubG9jYWwvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MTAwMTM5MDksImV4cCI6MTcxMDAxNzUwOSwibmJmIjoxNzEwMDEzOTA5LCJqdGkiOiIydEtJaVl4MWM0NVJOcHVIIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.KUvNVQx61fw7xm-JeDzh9yqYh8tQN1tWDqK9codQQz4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://laravel-jwt.local/api/auth/refresh",
+					"protocol": "http",
+					"host": [
+						"laravel-jwt",
+						"local"
+					],
+					"path": [
+						"api",
+						"auth",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://laravel-jwt.local/api/auth/logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGFyYXZlbC1qd3QubG9jYWwvYXBpL2F1dGgvcmVmcmVzaCIsImlhdCI6MTcxMDAxMzkwOSwiZXhwIjoxNzEwMDE3OTc4LCJuYmYiOjE3MTAwMTQzNzgsImp0aSI6IlpYMnVNeENQTXduRmpqTTgiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.lRkMpXDBtoW0csVi4hxAoCmCs9SSpfmy2hptqoSclbs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://laravel-jwt.local/api/auth/logout",
+					"protocol": "http",
+					"host": [
+						"laravel-jwt",
+						"local"
+					],
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
