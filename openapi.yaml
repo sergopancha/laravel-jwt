@@ -79,45 +79,34 @@ paths:
     post:
       tags:
         - auth
-      summary: Logs user with  into the system
+      summary: Logs user with  into the system and get token
       description: ''
       operationId: loginUser
       parameters:
         - name: username
           in: query
           description: The user name for login
-          required: false
+          required: true
           schema:
             type: string
         - name: password
           in: query
           description: The password for login in clear text
-          required: false
+          required: true
           schema:
             type: string
       responses:
         '200':
           description: successful operation
-          headers:
-            X-Rate-Limit:
-              description: calls per hour allowed by the user
-              schema:
-                type: integer
-                format: int32
-            X-Expires-After:
-              description: date in UTC when token expires
-              schema:
-                type: string
-                format: date-time
           content:
-            application/xml:
-              schema:
-                type: string
             application/json:
               schema:
-                type: string
-        '400':
-          description: Invalid username/password supplied
+                $ref: '#/components/schemas/UserLogin'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UserLogin'
+        '401':
+          description: Unauthorized
   /user/logout:
     get:
       tags:
@@ -260,10 +249,43 @@ components:
             id:
               type: integer
               example: 2
-
-
       xml:
-        name: userRequest
+        name: userRegister
+    UserLogin:
+      type: object
+      properties:
+        access_token:
+          type: string
+          example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGFyYXZlbC1qd3QubG9jYWwvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MTAwODgxNTAsImV4cCI6MTcxMDA5MTc1MCwibmJmIjoxNzEwMDg4MTUwLCJqdGkiOiI4VmpQd2tqY3p5dDBLekU2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.a5gVCcCTcFkAonM9ttuGi822ZzLowzysCGR2-GNT7pM
+        token_type:
+          type: string
+          default: bearer
+        expires_in:
+          type: integer
+          default: 3600
+        user:
+          type: object
+          properties:
+            name:
+              type: string
+              example: FirstName LastName
+            email:
+              type: string
+              example: john@email.com
+            email_verified_at:
+              type: string
+              example: 2024-03-10T11:48:05.000000Z
+            updated_at:
+              type: string
+              example: 2024-03-10T11:48:05.000000Z
+            created_at:
+              type: string
+              example: 2024-03-10T11:48:05.000000Z
+            id:
+              type: integer
+              example: 2
+      xml:
+        name: userRegister
     ApiResponse:
       type: object
       properties:
