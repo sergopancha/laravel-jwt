@@ -108,16 +108,29 @@ paths:
         '401':
           description: Unauthorized
   /user/logout:
-    get:
+    post:
       tags:
         - auth
       summary: Logs out current logged in user session
       description: ''
       operationId: logoutUser
-      parameters: []
+      parameters:
+        - name: token
+          in: header
+          description: bearer token
+          required: true
+          schema:
+            type: string
       responses:
-        default:
+        '200':
           description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserLogout'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UserLogout'
   /auth/user-profile:
     get:
       tags:
@@ -277,6 +290,14 @@ components:
               example: 2
       xml:
         name: userRegister
+    UserLogout:
+      type: object
+      properties:
+        message:
+          type: string
+          default: User successfully signed out
+      xml:
+        name: userLogout
     ApiResponse:
       type: object
       properties:
