@@ -118,17 +118,17 @@ paths:
       responses:
         default:
           description: successful operation
-  /user/{username}:
+  /auth/user-profile:
     get:
       tags:
         - auth
-      summary: Get user by user name
+      summary: Get user profile with token
       description: ''
-      operationId: getUserByName
+      operationId: getUserProfile
       parameters:
-        - name: username
-          in: path
-          description: 'The name that needs to be fetched. Use user1 for testing. '
+        - name: token
+          in: header
+          description: 'Send token for bearer authorization and get user profile data'
           required: true
           schema:
             type: string
@@ -138,42 +138,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/UserProfile'
             application/xml:
               schema:
-                $ref: '#/components/schemas/User'
-        '400':
-          description: Invalid username supplied
-        '404':
-          description: User not found
-    put:
-      tags:
-        - auth
-      summary: Update user
-      description: This can only be done by the logged in user.
-      operationId: updateUser
-      parameters:
-        - name: username
-          in: path
-          description: name that need to be deleted
-          required: true
-          schema:
-            type: string
-      requestBody:
-        description: Update an existent user in the store
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/User'
-      responses:
-        default:
-          description: successful operation
+                $ref: '#/components/schemas/UserProfile'
 components:
   schemas:
     User:
@@ -249,6 +217,29 @@ components:
             id:
               type: integer
               example: 2
+      xml:
+        name: userRegister
+    UserProfile:
+      type: object
+      properties:
+        name:
+          type: string
+          example: FirstName LastName
+        email:
+          type: string
+          example: john@email.com
+        email_verified_at:
+          type: string
+          example: 2024-03-10T11:48:05.000000Z
+        updated_at:
+          type: string
+          example: 2024-03-10T11:48:05.000000Z
+        created_at:
+          type: string
+          example: 2024-03-10T11:48:05.000000Z
+        id:
+          type: integer
+          example: 2
       xml:
         name: userRegister
     UserLogin:
