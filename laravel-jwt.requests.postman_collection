@@ -21,17 +21,17 @@
 						},
 						{
 							"key": "email",
-							"value": "tulazis@yandx.ru",
+							"value": "email@email.org",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "sergey",
+							"value": "dfRB94c_d4",
 							"type": "text"
 						},
 						{
 							"key": "password_confirmation",
-							"value": "sergey",
+							"value": "dfRB94c_d4",
 							"type": "text"
 						}
 					]
@@ -93,12 +93,12 @@
 					"formdata": [
 						{
 							"key": "email",
-							"value": "tulazis@yandex.ru",
+							"value": "email@email.org",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "sergey",
+							"value": "dfRB94c_d4",
 							"type": "text"
 						}
 					]
